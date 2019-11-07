@@ -14,7 +14,10 @@ import org.slf4j.LoggerFactory;
 
 import com.google.gson.JsonObject;
 import com.mabaji.myapp.sample.web.login.LoginVO;
+import com.mabaji.myapp.sample.web.menu.MenuService;
 import com.mabaji.myapp.standard.common.exception.CommonException;
+import com.mabaji.myapp.standard.common.util.MyAccessBeanUtils;
+import com.mabaji.myapp.standard.common.util.MyMapperUtils;
 import com.mabaji.myapp.standard.common.util.MySessionUtils;
 
 public class MenuTag extends TagSupport {
@@ -36,7 +39,7 @@ public class MenuTag extends TagSupport {
                     if (memberTyp != null && memberTyp.intValue() >= 800) {
                         param.addProperty("power", memberTyp);
                         bodyHtml.append("<script> const menuData = ")
-//                                .append(MyMapperUtils.writeObjectAsString(MyAccessBeanUtils.getBean(MenuService.class).getMenuVOObject(param, MySessionUtils.isNotLogined(session))))
+                                .append(MyMapperUtils.writeObjectAsString(MyAccessBeanUtils.getBean(MenuService.class).getMenuVOObject(param, MySessionUtils.isNotLogined(session))))
                                 .append("</script>");
                         bodyHtml.append("<script> const menuMemberNm = ").append(loginVO.getMemberNm()).append("</script>");
                     }
