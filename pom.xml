@@ -21,6 +21,7 @@
         <mybatis-version>3.5.2</mybatis-version>
         <mybatis-spring-version>2.0.2</mybatis-spring-version>
         <HikariCP-version>3.3.1</HikariCP-version>
+        <lucy-version>1.6.3</lucy-version>
         <servlet-api-version>4.0.1</servlet-api-version> <!-- tomcat9 : 4.0.1 tomcat8.5 : 3.1.0, tomcat7 : 3.0.1 -->
         <servlet.jsp-api-version>2.3.3</servlet.jsp-api-version> <!-- tomcat9 & tomcat 8.5 : 2.3.3, tomcat7 : 2.2.1 -->
         <jstl-version>1.2</jstl-version>
@@ -162,6 +163,12 @@
             <version>${HikariCP-version}</version>
         </dependency>
         
+        <!-- XSS Filter -->
+        <dependency>
+            <groupId>com.navercorp.lucy</groupId>
+            <artifactId>lucy-xss</artifactId>
+            <version>${lucy-version}</version>
+        </dependency>
         
         
         

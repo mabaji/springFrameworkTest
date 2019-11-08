@@ -1,25 +1,31 @@
 package com.mabaji.myapp.standard.context.db;
 
-import com.mabaji.myapp.standard.override.SqlSessionTemplateOverride;
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
+import java.io.Serializable;
+
+import javax.annotation.Resource;
+import javax.sql.DataSource;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.annotation.Resource;
-import javax.sql.DataSource;
-import java.io.Serializable;
+import com.mabaji.myapp.standard.override.SqlSessionTemplateOverride;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 
-//@Configuration
-//@EnableTransactionManagement
-//@MapperScan(basePackages = "com.mabaji.myapp", annotationClass = Mapper.class)
+@Configuration
+@EnableTransactionManagement
+@MapperScan(basePackages = "com.mabaji.myapp", annotationClass = Mapper.class)
 public class DbMybatisContext {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Value("#{jdbcProperties['jdbc.first.driverClassName']}")
